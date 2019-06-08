@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Your Name",
-    "email": "your.email@domain.com",
+    "name": "Mehul Bhatt",
+    "email": "mehul.2287884@gmail.com",
     "url": "https://your-website.com"
   },
   "build": {
@@ -16,6 +16,7 @@
       "category": "public.app-category.utilities"
     },
     "files": [
+      "*.js",
       "build/**/*",
       "node_modules/**/*"
     ],
@@ -52,21 +53,20 @@
     "shelljs": "^0.8.3",
     "shortid": "^2.2.14",
     "sweetalert": "^2.1.2",
-    "timeago-react": "^2.0.1"
+    "timeago-react": "^2.0.1",
+    "webpack-target-electron-renderer": "^0.4.0"
   },
   "homepage": "./",
   "main": "public/electron.js",
   "scripts": {
     "start": "rescripts start",
-    "react-build": "rescripts build",
+    "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "build -mw",
-    "electron-build": "electron-builder",
-    "build": "yarn react-build && yarn electron-build"
+    "electron-pack": "build -mw"
   },
   "eslintConfig": {
     "extends": "react-app"

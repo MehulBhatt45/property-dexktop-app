@@ -399,37 +399,37 @@ $(document).ready(function(){
 	/*----------------------------------------------------*/
 	/*  Search Type Buttons
 	/*----------------------------------------------------*/
-	function searchTypeButtons() {
+	// function searchTypeButtons() {
 
-		// Radio attr reset
-		$('.search-type label.active input[type="radio"]').prop('checked',true);
+	// 	// Radio attr reset
+	// 	$('.search-type label.active input[type="radio"]').prop('checked',true);
 
-		// Positioning indicator arrow
-		var buttonWidth = $('.search-type label.active').width();
-		var arrowDist = $('.search-type label.active').position().left;
-		$('.search-type-arrow').css('left', arrowDist + (buttonWidth/2) );
+	// 	// Positioning indicator arrow
+	// 	var buttonWidth = $('.search-type label.active').width();
+	// 	var arrowDist = $('.search-type label.active').position().left;
+	// 	$('.search-type-arrow').css('left', arrowDist + (buttonWidth/2) );
 
-		$('.search-type label').on('change', function() {
-		    $('.search-type input[type="radio"]').parent('label').removeClass('active');
-		    $('.search-type input[type="radio"]:checked').parent('label').addClass('active');
+	// 	$('.search-type label').on('change', function() {
+	// 	    $('.search-type input[type="radio"]').parent('label').removeClass('active');
+	// 	    $('.search-type input[type="radio"]:checked').parent('label').addClass('active');
 
-			// Positioning indicator arrow
-			var buttonWidth = $('.search-type label.active').width();
-			var arrowDist = $('.search-type label.active').position().left;
+	// 		// Positioning indicator arrow
+	// 		var buttonWidth = $('.search-type label.active').width();
+	// 		var arrowDist = $('.search-type label.active').position().left;
 
-			$('.search-type-arrow').css({
-				'left': arrowDist + (buttonWidth/2),
-				'transition':'left 0.4s cubic-bezier(.87,-.41,.19,1.44)'
-			});
-		});
+	// 		$('.search-type-arrow').css({
+	// 			'left': arrowDist + (buttonWidth/2),
+	// 			'transition':'left 0.4s cubic-bezier(.87,-.41,.19,1.44)'
+	// 		});
+	// 	});
 
-	}
+	// }
 
-	// Init
-	if ($(".main-search-form").length){
-		searchTypeButtons();
-		$(window).on('load resize', function() { searchTypeButtons(); });
-	}
+	// // Init
+	// if ($(".main-search-form").length){
+	// 	searchTypeButtons();
+	// 	$(window).on('load resize', function() { searchTypeButtons(); });
+	// }
 
 
     /*----------------------------------------------------*/
@@ -520,11 +520,11 @@ $(document).ready(function(){
     /*----------------------------------------------------*/
     /*  Searh Form More Options
     /*----------------------------------------------------*/
-    // $('.more-search-options-trigger').on('click', function(e){
-    // 	e.preventDefault();
-	// 	$('.more-search-options, .more-search-options-trigger').toggleClass('active');
-	// 	$('.more-search-options.relative').animate({height: 'toggle', opacity: 'toggle'}, 300);
-	// });
+    $('.more-search-options-trigger').on('click', function(e){
+    	e.preventDefault();
+		$('.more-search-options, .more-search-options-trigger').toggleClass('active');
+		$('.more-search-options.relative').animate({height: 'toggle', opacity: 'toggle'}, 300);
+	});
 
 
 	/*----------------------------------------------------*/
@@ -959,7 +959,7 @@ $(document).ready(function(){
 		// owlCarousel reload
 		function owlReload() {
 			$('.listing-carousel').each(function(){
-				$(this).data('owlCarousel').reload();
+				// $(this).data('owlCarousel').reload();
 			});
 		}
 
@@ -1063,11 +1063,11 @@ $(document).ready(function(){
 	// Agent Profile Alignment
     $(window).on('load resize', function() {
 
-		$('.agents-grid-container').masonry({
-			itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
-			columnWidth: '.grid-item',
-			percentPosition: true
-		});
+		// $('.agents-grid-container').masonry({
+		// 	itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
+		// 	columnWidth: '.grid-item',
+		// 	percentPosition: true
+		// });
 
 		var agentAvatarHeight = $(".agent-avatar img").height();
 		var agentContentHeight = $(".agent-content").innerHeight();

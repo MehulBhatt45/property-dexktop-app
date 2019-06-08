@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TileBar from './TileBar/TileBar';
-import Container1 from './Container1/Container1';
+// import TileBar from './TileBar/TileBar';
+// import Container1 from './Container1/Container1';
 import Container2 from './Container2/Container2';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';

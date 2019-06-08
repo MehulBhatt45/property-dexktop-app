@@ -8,7 +8,7 @@ import { ReactIndexedDB } from 'react-indexed-db';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 // var $;
 import { config } from '../../config';
-import html2canvas from 'html2canvas'; 
+import * as html2canvas from 'html2canvas'; 
 import * as jsPDF from 'jspdf'
 const Geo = require('geo-nearby');
 var geohash = require('ngeohash');
@@ -74,7 +74,7 @@ class Container2 extends Component {
 			this.db.getAll('property').then(
 			  property => {
 					property.map((prop)=>{
-						prop['geoHash'] = geohash.encode_int (prop.geoLocation.coordinates[1], prop.geoLocation.coordinates[0])
+						return prop['geoHash'] = geohash.encode_int (prop.geoLocation.coordinates[1], prop.geoLocation.coordinates[0])
 					})
 					console.log(property);
 					setTimeout(()=>{
@@ -128,18 +128,31 @@ class Container2 extends Component {
 
 	printDocument() {
 		const input = document.getElementById('singleProperty');
-		console.log(input);
-    html2canvas(input)
-      .then((canvas) => {
-				console.log(canvas)
-				const imgData = canvas.toDataURL('image/jpeg');
-				console.log(imgData)
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
-      })
-    ;
+    html2canvas(input, (canvas) => {
+				const imgData = canvas.toDataURL('image/png');
+				var imgWidth = 210; 
+				var pageHeight = 295;  
+				var imgHeight = canvas.height * imgWidth / canvas.width;
+				var heightLeft = imgHeight;
+				
+				var doc = new jsPDF('p', 'mm');
+				var position = 0;
+				
+				doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+				heightLeft -= pageHeight;
+				
+				while (heightLeft >= 0) {
+					position = heightLeft - imgHeight;
+					doc.addPage();
+					doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+					heightLeft -= pageHeight;
+				}
+				doc.save( 'file.pdf');
+      });
+		// const pdf = new jsPDF();
+		// pdf.addHTML(document.getElementById('singleProperty'), ()=>{
+		// 	pdf.save("abc.pdf");
+		// })
   }
 
 
@@ -185,10 +198,10 @@ class Container2 extends Component {
 							<div style={{whiteSpace: 'pre-wrap' }}>
 								{this.props.property.description?this.props.property.description:"No Descripción"}
 							</div>
-							<div className="show-more">
+							{/* <div className="show-more">
 
-								{/* <a href="/" className="show-more-button">Ver mas <i className="fa fa-angle-down"></i></a> */}
-							</div>
+								<a href="/" className="show-more-button">Ver mas <i className="fa fa-angle-down"></i></a>
+							</div> */}
 
 
 							<h3 className="desc-headline">Amenities</h3>
@@ -227,14 +240,14 @@ class Container2 extends Component {
 							</div>
 
 
+							</div>
+							<div className="property-description"> 
 
 							<h3 className="desc-headline no-border" id="location">Ubicación</h3>
 							<div id="propertyMap-container">
 								<div id="propertyMap"></div>
 								<a href="/" id="streetView">Street View</a>
 							</div>
-							</div>
-							<div>
 
 
 							<h3 className="desc-headline no-border margin-bottom-35 margin-top-60">Propiedades Similares</h3>
@@ -261,7 +274,7 @@ class Container2 extends Component {
 											<span className="like-icon"></span>
 										</div>
 
-										<img src={config.baseMediaUrl + property.images[0]} alt="" onError={()=>this.src='images/no-priview.jpg'}/>
+										<img src={property.images.length?config.baseMediaUrl + property.images[0]:"images/no-priview.jpg"} alt="" onError={()=>this.src='images/no-priview.jpg'}/>
 
 									</Link>
 

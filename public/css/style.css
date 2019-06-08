@@ -12068,7 +12068,7 @@ body .counter-boxes-inside-parallax .counter-box-icon i,
 
 	@media only screen and (max-width: 1024px) {#style-switcher {display: none;}}
 
-	.slick-slide.slick-active.slick-cloned {
+	.slick-slide.slick-cloned {
 		display: none !important;
 	}
 

@@ -8,7 +8,7 @@ import Loader from 'react-loader-spinner';
 import { ReactIndexedDB } from 'react-indexed-db';
 const async = require('async');
 const shortid = require('shortid');
-const _ = require('lodash');
+// const _ = require('lodash');
 const cpFile = require('cp-file');
 
 

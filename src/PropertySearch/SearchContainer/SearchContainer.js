@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ResultContainer from '../ResultContainer/ResultContainer'
 import * as $ from 'jquery';
-import * as _ from 'lodash';
-import { config } from '../../config'
+// import * as _ from 'lodash';
+// import { config } from '../../config'
 import { ReactIndexedDB } from 'react-indexed-db';
 class SearchContainer extends Component {
 

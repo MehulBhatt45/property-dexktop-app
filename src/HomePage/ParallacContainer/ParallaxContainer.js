@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import { config } from '../../config'
 import * as $ from 'jquery';
+var loadjs = require('loadjs');
 var sectionStyle = {
     backgroundImage: "url(images/cate-mex.jpeg)",
     backgroundAttachment: 'fixed',
@@ -22,7 +23,9 @@ class ParallaxContainer extends Component {
   }
 
   componentDidMount(){
-		
+		loadjs('/scripts/custom.js', ()=>{
+      // $('.footer-shadow').css({'visibility': 'hidden'});
+    });
   }
 
     render() {
