@@ -128,7 +128,8 @@ class Container2 extends Component {
 
 	printDocument() {
 		const input = document.getElementById('singleProperty');
-    html2canvas(input, (canvas) => {
+    html2canvas(input)
+      .then((canvas) => {
 				const imgData = canvas.toDataURL('image/png');
 				var imgWidth = 210; 
 				var pageHeight = 295;  
