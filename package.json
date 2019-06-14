@@ -30,6 +30,7 @@
     "cross-env": "^5.2.0",
     "electron-is-dev": "^1.1.0",
     "geo-nearby": "^2.0.1",
+    "html-pdf": "^2.2.0",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
@@ -54,7 +55,8 @@
     "shortid": "^2.2.14",
     "sweetalert": "^2.1.2",
     "timeago-react": "^2.0.1",
-    "webpack-target-electron-renderer": "^0.4.0"
+    "webpack-target-electron-renderer": "^0.4.0",
+    "wkhtmltopdf": "^0.3.4"
   },
   "homepage": "./",
   "main": "public/electron.js",
@@ -63,7 +65,7 @@
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:4000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -mw"

@@ -1,8 +1,29 @@
 /* ----------------- Start Document ----------------- */
 (function($){
-"use strict";
-
-$(document).ready(function(){
+	"use strict";
+	
+	$(document).ready(function(){
+		// var jsPDF = require('jspdf');
+		// var html2canvas = require('html2canvas');
+		// $('#printPdf').on('click', ()=>{
+		// 	console.log("in click func", $("#singleProperty")[0])
+		// 	var doc = new jsPDF('p', 'pt','a4',true);
+		// 	doc.setFontSize(16);
+		// 	doc.setTextColor(80, 77, 78);
+		// 	doc.text(15, 2, 'should be an image under here'); 
+		// 	html2canvas($("#singleProperty")[0], {
+		// 		useCORS : true,
+		// 		onrendered: function(canvas) {
+		// 			console.log("canvas: ", canvas)
+		// 			var imgData = canvas.toDataURL('image/jpeg');
+					
+		// 			doc.addImage(imgData, 'JPEG', 15, 0, 34, 37);
+		// 			console.log(imgData);
+		// 			$('#singleProperty').append(canvas);
+		// 			doc.save('Spec_Sheet.pdf');
+		// 		}
+		// 	});
+		// })
 
 	var footerHeight = $('.footer_fixed_bottom').outerHeight();
 	$(".footer_fixed_bottom").prev().css({"margin-bottom": footerHeight});
