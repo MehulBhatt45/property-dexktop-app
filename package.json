@@ -30,7 +30,7 @@
     "cross-env": "^5.2.0",
     "electron-is-dev": "^1.1.0",
     "geo-nearby": "^2.0.1",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
